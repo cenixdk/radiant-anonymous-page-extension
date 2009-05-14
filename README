@@ -1,0 +1,31 @@
+= Anonymous
+
+Created by Christian Nikolajsen (cnikolajsen), May 2009
+
+Adds a new page type called Anonymous for pages to be hidden from menus and/or sitemaps.
+
+== Installation
+
+  cd vendor/extensions  
+  
+	git clone git://github.com/cnikolajsen/radiant-anonymous-page-extension.git anonymous_page
+
+== USAGE
+
+Radius Tags
+<r:if_anonymous>: Render contained elements if page is anonymous.
+<r:unless_anonymous>: Render contained elements if page is not anonymous.
+
+Example:
+<r:children:each>
+  <r:unless_anonymous>
+    <li>
+      <r:if_self>
+        <r:link class="current" />
+      </r:if_self>
+      <r:unless_self>
+        <r:link />
+      </r:unless_self>
+    </li>
+  </r:unless_anonymous>
+</r:children:each>
